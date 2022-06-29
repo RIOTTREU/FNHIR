@@ -1,0 +1,46 @@
+a={nil,nil,nil,nil,nil,nil}
+
+function MENU1()
+a=gg.prompt({
+"skill",
+"item",
+"cast",
+"run[1;12]",
+"speed atk",
+"wall hack",
+"exit"
+},{a[1],a[2],a[3],a[4],a[5],a[6]},{
+"checkbox",
+"checkbox",
+"checkbox",
+"number",
+"checkbox",
+"checkbox",
+"checkbox"
+})
+if a == nil then else
+if a[1] == true then  end
+if a[1] == false then   end
+if a[2] == true then  end
+if a[2] == false then  end
+if a[3] == true then   end
+if a[3] == false then  end
+if a[4] then  end
+if a[5] == true then   end
+if a[5] == false then end
+if a[6] == true then  end
+if a[6] == false then  end
+if a[7] == true then os.exit() end
+end
+MMSX=-1
+end
+
+
+while true do
+if gg.isVisible(true) then
+MMSX=1
+gg.setVisible(false)
+end
+if MMSX==1 then MENU1()
+end
+end

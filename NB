@@ -7,6 +7,7 @@ RIOT = -1
 function HOME()
 oc = gg.choice({
 	'test',
+	'NT',
 	'อ อ ก'
 },nil,[[test]])
 if oc == nil then
@@ -15,6 +16,9 @@ if oc == 1 then
 tk1()
 end
 if oc == 2 then
+noc()
+end
+if oc == 3 then
 EXIT()
 end
 RIOT = -1
@@ -40,7 +44,13 @@ function tk1()
 	end
 end
 
-
+function noc()
+G=gg.addListItems()
+for i,v in ipairs(G) do
+if v.name == "BN"
+v.value = 3
+gg.setValues(G)
+end
 
 
 

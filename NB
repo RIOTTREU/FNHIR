@@ -14,6 +14,7 @@ mq[1].value = value
 mq[1].freeze = freeze
 mq[1].name = name
 end
+RIOT = -1
 
 function HOME()
 oc = gg.choice({
@@ -72,7 +73,7 @@ while true do
       RIOT = 1
       gg.setVisible(false)
     end
-    if RIOT == -1 then
+    if RIOT == 1 then
       HOME()
     end
   end

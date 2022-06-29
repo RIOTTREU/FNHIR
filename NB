@@ -35,7 +35,7 @@ function tk1()
 		p[i].flags = 4
 		p[i].value = 1
 		p[i].freeze = false
-		p[i].name = BN
+		p[i].name = "BN"
 		gg.addListItems(p)
 	end
 end

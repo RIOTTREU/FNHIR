@@ -63,5 +63,6 @@ while true do
     end
     if RIOT == 1 then
       HOME()
+      RIOT = -1
     end
 end

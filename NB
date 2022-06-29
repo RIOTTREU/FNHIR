@@ -1,0 +1,78 @@
+gg.setVisible(false)
+gg.sleep(350)
+gg.toast("Script By : RTMRIOT\n Developer : RTMRIOT")
+gg.sleep(600)
+gg.setVisible(true)
+RIOT = -1
+
+function tkqm()
+mq = {}
+mq[1] = {}
+mq[1].address = address
+mq[1].flags = flags
+mq[1].value = value
+mq[1].freeze = freeze
+mq[1].name = name
+end
+
+function HOME()
+oc = gg.choice({
+	'test',
+	'อ อ ก'
+},nil,[[test]])
+if oc == nil then
+else
+if oc == 1 then
+tk1()
+end
+if oc == 2 then
+EXIT()
+end
+RIOT = -1
+end
+end
+
+function tk1()
+	gg.clearResults()
+	r = {"4"}
+	gg.setRanges(gg.REGION_JAVA_HEAP)
+	gg.searchNumber("128;1;2;3:13", gg.TYPE_DWORD)
+	gg.refineNumber("128", gg.TYPE_DWORD)
+	q = gg.getResults(1)
+	for i = 1,#r do
+	p = {}
+		p[i] = {}
+		p[i].address = q[1].address + r[i]
+		p[i].flags = 4
+		p[i].value = 1
+		p[i].freeze = false
+		p[i].name = BN
+		gg.addListItems(p)
+	end
+end
+
+
+
+
+
+
+
+
+
+
+
+
+function EXIT()
+    gg.skipRestoreState()
+    gg.setVisible(true)
+    os.exit()
+end
+while true do
+    if gg.isVisible(true) then
+      RIOT = 1
+      gg.setVisible(false)
+    end
+    if RIOT == 1 then
+      HOME()
+    end
+  end

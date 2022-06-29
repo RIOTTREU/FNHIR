@@ -69,10 +69,10 @@ function EXIT()
 end
 while true do
     if gg.isVisible(true) then
-      RIOT = -1
+      RIOT = 1
       gg.setVisible(false)
     end
-    if RIOT == 1 then
+    if RIOT == -1 then
       HOME()
     end
   end

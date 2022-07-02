@@ -100,14 +100,14 @@ function CLASSBS()
         'มังกรศิลาเฟลเซน',
         'มังกรไฟเบลอาร์ด',
         'ราชันมังกรไกเซอร์',
-        '--',
+        --'--',
         'กลีบ'
     },nil,[[CLASS BOSS]])
     if BS == nil then else
         if BS == 1 then sb01() end
         if BS == 2 then sb02() end
-        if BS == 2 then sb03() end
-        if BS == 30 then HOME() end
+        if BS == 3 then sb03() end
+        if BS == 4 then HOME() end
     end
 end
 --NPC1=4
@@ -163,23 +163,23 @@ function sb03()
         gg.addListItems(p)
     end
 end
-function sb04()
-    gg.clearResults()
-    r = {"4"}
-    gg.searchNumber("128;4;0;0:13",gg.TYPE_DWORD)
-    gg.refineNumber("128",gg.TYPE_DWORD)
-    q = gg.getResults(1)
-    for i = 1,#r do
-        p = {}
-        p[1] = {}
-        p[1].address = q[1].address +r[i]
-        p[1].flags = 4
-        p[1].value = 3
-        p[1].freeze = false
-        p[1].name = "--"
-        gg.addListItems(p)
-    end
-end
+--function sb04()
+    --gg.clearResults()
+    --r = {"4"}
+    --gg.searchNumber("128;4;0;0:13",gg.TYPE_DWORD)
+    --gg.refineNumber("128",gg.TYPE_DWORD)
+    --q = gg.getResults(1)
+    --for i = 1,#r do
+        --p = {}
+        --p[1] = {}
+        --p[1].address = q[1].address +r[i]
+        --p[1].flags = 4
+        --p[1].value = 3
+        --p[1].freeze = false
+        --p[1].name = "--"
+        --gg.addListItems(p)
+    --end
+--end
 
 
 

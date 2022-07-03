@@ -5,17 +5,17 @@ oc = gg.choice({
    'EXIT' 
 },nil,[[DEVELOPER : RIOT]])
 if oc == nil then else
-    if oc == 1 then
+    if co == 1 then
         CLASSPY()
     end
-    if oc == 2 then
+    if co == 2 then
         CLASSBS()
     end
     if oc == 3 then
         os.exit()
     end
-    RIOT = -1
 end
+RIOT = -1
 end
 --CLASSPLAY 
 function CLASSPY()
@@ -100,15 +100,16 @@ function CLASSBS()
         'มังกรศิลาเฟลเซน',
         'มังกรไฟเบลอาร์ด',
         'ราชันมังกรไกเซอร์',
-        --'--',
-        'กลีบ'
+        '--',
+        'กลับ'
     },nil,[[CLASS BOSS]])
     if BS == nil then else
-        if BS == 1 then sb01() end
-        if BS == 2 then sb02() end
-        if BS == 3 then sb03() end
-        if BS == 4 then HOME() end
+        if BS[1] then sb01() end
+        if BS[2] then sb02() end
+        if BS[3] then sb03() end
+        if BS[4] then HOME() end
     end
+    RIOT = -1
 end
 --NPC1=4
 --NPC2=8
@@ -126,6 +127,7 @@ function sb01()
         p[1].value = 8
         p[1].freeze = false
         p[1].name = "มังกรศิลาเฟลเซน"
+        gg.setValues(p)
         gg.addListItems(p)
     end
 end
@@ -143,6 +145,7 @@ function sb02()
         p[1].value = 4
         p[1].freeze = false
         p[1].name = "มังกรไฟเบลอาร์ด"
+        gg.setValues(p)
         gg.addListItems(p)
     end
 end
@@ -160,26 +163,28 @@ function sb03()
         p[1].value = 3
         p[1].freeze = false
         p[1].name = "ราชันมังกรไกเซอร์"
+        gg.setValues(p)
         gg.addListItems(p)
     end
 end
---function sb04()
-    --gg.clearResults()
-    --r = {"4"}
-    --gg.searchNumber("128;4;0;0:13",gg.TYPE_DWORD)
-    --gg.refineNumber("128",gg.TYPE_DWORD)
-    --q = gg.getResults(1)
-    --for i = 1,#r do
-        --p = {}
-        --p[1] = {}
-        --p[1].address = q[1].address +r[i]
-        --p[1].flags = 4
-        --p[1].value = 3
-        --p[1].freeze = false
-        --p[1].name = "--"
-        --gg.addListItems(p)
-    --end
---end
+function sb04()
+    gg.clearResults()
+    r = {"4"}
+    gg.searchNumber("128;4;0;0:13",gg.TYPE_DWORD)
+    gg.refineNumber("128",gg.TYPE_DWORD)
+    q = gg.getResults(1)
+    for i = 1,#r do
+        p = {}
+        p[1] = {}
+        p[1].address = q[1].address +r[i]
+        p[1].flags = 4
+        p[1].value = 3
+        p[1].freeze = false
+        p[1].name = "--"
+        gg.setValues(p)
+        gg.addListItems(p)
+    end
+end
 
 
 

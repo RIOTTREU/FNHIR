@@ -5,10 +5,10 @@ oc = gg.choice({
    'EXIT' 
 },nil,[[DEVELOPER : RIOT]])
 if oc == nil then else
-    if co == 1 then
+    if oc == 1 then
         CLASSPY()
     end
-    if co == 2 then
+    if oc == 2 then
         CLASSBS()
     end
     if oc == 3 then

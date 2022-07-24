@@ -12,24 +12,20 @@ end
 end
 
 function atkf()
-	gg.clearResults()
-	r = {"-128"}
-	gg.searchNumber("27018", gg.TYPE_DWORD)
-	gg.refineNumber("27018", gg.TYPE_DWORD)
-	q = gg.getResults(1)
-	for i = 1,#r do
-		p = {}
-		p[i] = {}
-		p[i].address = q[1].address + r[i]
-		p[i].flags = gg.TYPE_DWORD
-		p[i].value = 15
-		p[i].freeze = true
-gg.setValues(p)
-		gg.addListItems(p)
-end
 gg.clearResults()
-gg.clearResults()	
-gg.toast("Okเสร็จละ ตีไกล ดราก้อนคลอ")
+gg.searchNumber('27007', gg.TYPE_DWORD)
+gg.refineNumber('27007', gg.TYPE_DWORD)
+Results = gg.getResults(1)
+offset = -140
+s = {}
+s[1] = {}
+s[1].address = Results[1].address + offset
+s[1].flags = 4
+s[1].freeze = true --true,false
+s[1].name = "ตีไกล"
+s[1].value = 15
+gg.setValues(s)
+gg.addListItems(s)
 end
 
 function atks()

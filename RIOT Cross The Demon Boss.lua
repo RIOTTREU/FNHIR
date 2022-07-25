@@ -12,23 +12,182 @@ function RIOT(address,flags,freeze,name,value)
 end
 
 function HOME()
+    FGG = gg.choice({
+        'เมนูภาษาไทย',
+        'English menu',
+        '[ออก]/[exit]'
+    },nil,"DEVELOPER : RIOT\nกรุณาเลือกภาษา\nPlease select a language")
+    if FGG == nil then
+    else
+        if FGG == 1 then
+            TH()
+        end
+        if FGG == 2 then
+            EN()
+        end
+        if FGG == 3 then
+            os.exit()
+    end
+    end
+end
+
+function EN()
     oc = gg.choice({
         'Function Player',
         'Function Boss',
-        'Exit'
+        'Function Warp the city',
+        'EXIT'
     },nil,[[DEVELOPER : RIOT]])
     if oc == nil then
     else
         if oc == 1 then
-            CLASSPY()
+            FNCLASSPYEN()
         end
         if oc == 2 then
             CLASSBS()
         end
         if oc == 3 then
+            wtc()
+        end
+        if oc == 4 then
             gg.clearList(true) os.exit()
         end
     end
+end
+
+function TH()
+    oc = gg.choice({
+        'ฟังชั้นพื้นฐานของผู้เล่น',
+        'ฟังชั้นข้ามบอส',
+        'ฟังชั้นวาป',
+        'ออก'
+    },nil,[[DEVELOPER : RIOT]])
+    if oc == nil then
+    else
+        if oc == 1 then
+            FNCLASSPY()
+        end
+        if oc == 2 then
+            CLASSBSTH()
+        end
+        if oc == 3 then
+            wtc()
+        end
+        if oc == 4 then
+            gg.clearList(true) os.exit()
+        end
+    end
+end
+function FNCLASSPY()
+    FP = gg.choice({
+        'ฟังชั้นพื้นฐาน(แบบรวม)',
+        'ฟังชั้นพื้นฐาน(แบบแยก)',
+        'กลับ'
+    },nil,[[DEVELOPER : RIOT]])
+    if FP == nil then
+    else
+        if FP == 1 then
+            CLASSPY()
+        end
+        if FP == 2 then
+            FNPY()
+        end
+        if FP == 3 then
+            TH()
+        end
+    end
+end
+
+function FNCLASSPYEN()
+    FP = gg.choice({
+        'Listen to the basics (included)',
+        'Listen to the basics (separately)',
+        'Back'
+    },nil,[[DEVELOPER : RIOT]])
+    if FP == nil then
+    else
+        if FP == 1 then
+            CLASSPY()
+        end
+        if FP == 2 then
+            FNPYEN()
+        end
+        if FP == 3 then
+            EN()
+        end
+    end
+end
+
+function FNPYEN()
+    P = gg.multiChoice({
+        'Automatic Skip',
+        'Run Fast',
+        'Run Through The Wall',
+        'Back'
+    },nil,[[DEVELOPER : RIOT]])
+    if P == nil then
+    else
+        if P[1] then
+            ASU()
+        end
+        if P == 2 then
+            SN()
+        end
+        if P[3] then
+            SNA()
+        end
+        if P[4]then
+            EN()
+        end
+    end
+end
+
+function FNPY()
+    P = gg.multiChoice({
+        'กดข้ามออโต้',
+        'วิ่งเร็ว',
+        'วิ่งทะลุ',
+        'กลับ'
+    },nil,[[DEVELOPER : RIOT]])
+    if P == nil then
+    else
+        if P[1] then
+            ASU()
+        end
+        if P == 2 then
+            SN()
+        end
+        if P[3] then
+            SNA()
+        end
+        if P[4]then
+            TH()
+        end
+    end
+end
+
+function ASU()
+    gg.clearResults()
+    T = {"224"}
+    gg.setRanges(2)
+    gg.searchNumber("11001" , gg.TYPE_DWORD)
+    gg.refineNumber("11001", gg.TYPE_DWORD)
+    R = gg.getResults(1)
+    RIOT(R[1].address + T[1],4,true,"SkipTheTaik",16777216)
+end
+
+function SN()
+    gg.searchNumber("3;1;-1;0~9999::13", gg.TYPE_DWORD)
+    gg.refineNumber("3", gg.TYPE_DWORD)
+    R = gg.getResults(1)
+    RIOT(R[1].address + 0xA4,16,true,"SpeedRun",9)
+end
+
+function SNA()
+    gg.searchNumber("3;1;-1;0~9999::13", gg.TYPE_DWORD)
+    gg.refineNumber("3", gg.TYPE_DWORD)
+    R = gg.getResults(1)
+    RIOT(R[1].address + 0xD4,16,true,"SpeedRun",2)
 end
 
 function CLASSPY()
@@ -46,8 +205,39 @@ function CLASSPY()
     RIOT(R[1].address + 0xD4,16,true,"SpeedRun",2)
 end
 
+function CLASSBSTH()
+    CB = gg.choice({
+        'บอส ตอนที่ 1',
+        'บอส ตอนที่ 2',
+        'บอส ตอนที่ 3 Developing',
+        'บอส ตอนที่ 4 not updated⪻',
+        'บอส ตอนที่ 5 not updated⪻',
+        'กลับ'
+    },nil,[[DEVELOPER : RIOT]])
+    if CB == nil then
+    else
+        if CB == 1 then
+            BE1()
+        end
+        if CB == 2 then
+            BE2()
+        end
+        if CB == 3 then
+            BE3()
+        end
+        if CB == 4 then
+            BE4()
+        end
+        if CB == 5 then
+            BE5()
+        end
+        if CB == 6 then
+            TH()
+        end
+    end
+end
 function CLASSBS()
-    CB = gg.multiChoice({
+    CB = gg.choice({
         'Boss Episode 1',
         'Boss Episode 2',
         'Boss Episode 3 Developing',
@@ -57,23 +247,23 @@ function CLASSBS()
     },nil,[[DEVELOPER : RIOT]])
     if CB == nil then
     else
-        if CB[1] then
-            BE1()
+        if CB == 1 then
+            BE1E()
         end
-        if CB[2] then
-            BE2()
+        if CB == 2 then
+            BE2E()
         end
-        if CB[3] then
-            BE3()
+        if CB == 3 then
+            BE3E()
         end
-        if CB[4] then
-            BE4()
+        if CB == 4 then
+            BE4E()
         end
-        if CB[5] then
-            BE5()
+        if CB == 5 then
+            BE5E()
         end
-        if CB[6] then
-            HOME()
+        if CB == 6 then
+            EN()
         end
     end
 end
@@ -1525,6 +1715,7 @@ function cb01() --อิไรย์ OK
 end
 
 
+    
 
 
 
@@ -1546,12 +1737,67 @@ end
 
 
 
+function wtc()
+    gg.clearResults()
+    gg.searchNumber("11001~20008;0~255;-1::9" , gg.TYPE_DWORD)
+    gg.refineNumber("11001~20008", gg.TYPE_DWORD)
+    Results = gg.getResults(1)
+    Results = gg.getResults(1)
+    offset = -100
+    s = {}
+    s[1] = {}
+    s[1].address = Results[1].address + offset
+    s[1].flags = 4
+    s[1].freeze = false
+    s[1].name = "map info"
+    s[1].value = 80000
+    gg.setValues(s)
+    gg.addListItems(s)
+    offset = -88
+    s = {}
+    s[1] = {}
+    s[1].address = Results[1].address + offset
+    s[1].flags = 4
+    s[1].freeze = false
+    s[1].value = 12800
+    gg.setValues(s)
+    offset = -84
+    s = {}
+    s[1] = {}
+    s[1].address = Results[1].address + offset
+    s[1].flags = 4
+    s[1].freeze = false
+    s[1].value =  7680
+    gg.setValues(s)
+    offset = 204
+    s = {}
+    s[1] = {}
+    s[1].address = Results[1].address + offset
+    s[1].flags = 4
+    s[1].freeze = false
+    s[1].value = 16842752
+    gg.setValues(s)
+    gg.clearResults()
+end
 
 
 
 
 
-while HOME do
+
+
+
+
+
+
+
+
+
+
+
+
+
+while true do
     if gg.isVisible(true) then
         gg.setVisible(false)
         HOME()

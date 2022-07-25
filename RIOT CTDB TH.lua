@@ -256,7 +256,7 @@ function BE1()
 		if BS == 46 then sb43() end --อาซีมอฟ
 		if BS == 47 then sb44() end --เมซาลูนา
 		if BS == 48 then sb45() end --เซียนัส
-        if BS == 49 then CLASSBS() end 
+        if BS == 49 then CLASSBSTH() end 
         if BS == 1 then gg.alert("") end
         if BS == nil then BS = RT end
         LOG =[[BS=]]..BS..[[]]
@@ -1065,7 +1065,7 @@ function BE2()
 		if BS == 24 then sb69() end --ผู้ตามล่า
 		if BS == 25 then sb70() end --ยูซิรุส
 		if BS == 26 then sb71() end --ราอาทอน
-        if BS == 27 then CLASSBS() end 
+        if BS == 27 then CLASSBSTH() end 
         if BS == 1 then gg.alert("") end
         if BS == nil then BS = RT end
         LOG =[[BS=]]..BS..[[]]
@@ -1573,7 +1573,7 @@ function BE3()
     },BS,[[DEVELOPER : RIOT]])
     if BS ~= nil then RT = BS end
         if BS == 1 then cb01() end
-    if BS == 2 then CLASSBS() end 
+    if BS == 2 then CLASSBSTH() end 
     if BS == 1 then gg.alert("") end
     if BS == nil then BS = RT end
     LOG =[[BS=]]..BS..[[]]
